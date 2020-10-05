@@ -15,7 +15,7 @@ public class Agenda {
 		if (posicao > 100 || posicao < 1) {
 			return "POSIÇÃO INVÁLIDA!";
 		} else {
-			contatos[posicao] = new Contato(nome, sobrenome, telefone);
+			contatos[posicao - 1] = new Contato(nome, sobrenome, telefone);
 			return "CADASTRO REALIZADO!";
 		}
 	}
@@ -26,7 +26,7 @@ public class Agenda {
 		} else if (contatos[posicao - 1] != null) {
 			return contatos[posicao - 1].toString();
 		} else {
-			return "POSIÇÃO OCUPADA!";
+			return "POSIÇÃO OCUPADA!"; 
 
 		}
 	}
@@ -35,7 +35,7 @@ public class Agenda {
 		String saida = "";
 		for (int i = 0; i <= contatos.length; i++) {
 			if (contatos[i] != null) {
-				saida += i + "- " + contatos[i].getNome() + " " + contatos[i].getSobrenome() + "\n";
+				saida += (i+1) + "- " + contatos[i].getNome() + " " + contatos[i].getSobrenome() + "\n";
 			} 
 		}
 		if (saida.isEmpty()) {
